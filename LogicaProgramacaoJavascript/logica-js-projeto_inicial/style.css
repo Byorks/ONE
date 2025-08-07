@@ -48,7 +48,7 @@ body::before {
 }
 
 .container__informacoes {
-    display: none;
+    /* display: none; */
     flex: 1;
     padding: 20px;
 }

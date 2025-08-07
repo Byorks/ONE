@@ -1,3 +1,5 @@
+// Minha tentativa de fazer o projeto da Alura sem consulta
+
 let info = document.querySelector('.container__informacoes');
 
 // Sorteia um número entre 0 e 30
