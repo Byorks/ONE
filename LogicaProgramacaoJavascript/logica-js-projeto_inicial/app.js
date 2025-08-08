@@ -31,9 +31,6 @@ while ( userInput != secretNumber) {
         else {
             alert("O número secreto é menor \ Tente novamente!");
         }
-
         userInput = null;
     }
-
-
 }

@@ -1,8 +1,9 @@
 alert("Boas vindas ao jogo do número secreto");
+let numeroMaximo =  5000;
 // Importante simular erros para verificar possíveis tentativas do usuário
 
 // Criando variável
-let numeroSecreto = parseInt(Math.random( ) * 100 + 1);
+let numeroSecreto = parseInt(Math.random( ) *  numeroMaximo + 1);
 
 let chute;
 let tentativas = 1;
@@ -11,7 +12,7 @@ let tentativas = 1;
 while (chute != numeroSecreto) {
   tentativas++;
   console.log(tentativas);
-  chute = prompt("Escolha um número entre 1 e 100");
+  chute = prompt(`Escolha um número entre 1 e ${numeroMaximo}`);
 
   // Condicional If(Se)
   if (chute == numeroSecreto) {
