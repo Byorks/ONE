@@ -1,3 +1,5 @@
+// ---- Desafio 1 Alura - Lógica de programação: mergulhe em programação com JavaScript ----
+
 // 1 
 alert("Boas vindas ao nosso site!");
 
