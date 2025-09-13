@@ -1,14 +1,21 @@
-// let titulo = document.querySelector('h1');
-// titulo.innerHTML = 'Jogo do número secreto';
-
-// let paragrafo = document.querySelector('p');
-// paragrafo.innerHTML = 'Escolha um número entre 1 e 10';
+let listaDeNumerosSorteados = [];
+let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
 function exibirTextoNaTela(tag, texto) {
   let campo = document.querySelector(tag);
   campo.innerHTML = texto;
+  
+  if ('speechSynthesis' in window) {
+    let utterance = new SpeechSynthesisUtterance(texto);
+    utterance.lang = 'pt-BR';
+    utterance.rate = 1.2;
+    window.speechSynthesis.speak(utterance);
+  }
+  else {
+    console.log('Web Speech API não suportada neste navegador.');
+  }
 }
 
 function limparCampo() {
@@ -50,5 +57,20 @@ function verificarChute() {
 }
 
 function gerarNumeroAleatorio() {
-  return parseInt(Math.random() * 10 + 1);
+  let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
+  let quantidadeDeElementosNaLista = listaDeNumerosSorteados.length;
+
+  if (quantidadeDeElementosNaLista == numeroLimite) {
+    listaDeNumerosSorteados = [];
+  }
+
+  if (listaDeNumerosSorteados.includes(numeroEscolhido)) { 
+    // Recursão - função que chama a própria função
+    return gerarNumeroAleatorio();
+  } else { 
+    // Adicionando item em lista, no final da lista
+    listaDeNumerosSorteados.push(numeroEscolhido);
+    console.log(listaDeNumerosSorteados);
+    return numeroEscolhido;
+  }
 }
